@@ -6,6 +6,7 @@
     <title>Product Log</title>
   </head>
   <body>
+    <%- include ('./partials/nav.ejs') %>
     <h1>Create A New Product</h1>
     <form action="/products" method="POST">
       Name: <input type="text" name="name" id="name" /><br />

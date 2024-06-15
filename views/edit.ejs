@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <%- include ('./partials/nav.ejs') %>
     <h1>Product Edit Page</h1>
     <form action="/products/<%=product.id%>/?_method=PUT" method="POST">
       Name:
