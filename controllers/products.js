@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // NEW
 router.get('/new', (req, res) => {
-    res.send("New Route Works")
+    res.render('new.ejs')
 })
 
 // DELETE
