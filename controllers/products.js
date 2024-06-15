@@ -9,6 +9,7 @@ const seedData = require("../models/seedData.js")
 // INDEX
 router.get("/", async (req, res) => {
     const allProducts = await Product.find({})
+    console.log(allProducts)
   res.render("index.ejs", {
     products: allProducts
   })
@@ -53,6 +54,9 @@ router.post("/", async (req, res) => {
 // EDIT
 
 // SHOW
+router.get('/:id', (req, res) => {
+    res.send("Product Show Page")
+})
 
 // async function seedMyData(seedData) {
 //     try {
