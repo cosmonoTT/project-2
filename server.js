@@ -3,12 +3,13 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const port = 4000;
-const productController = require('./controllers/products')
+const productController = require("./controllers/products");
 
 const mongoURI = "mongodb://127.0.0.1:27017/products";
 
 // Middleware
-app.use('/products', productController)
+app.use(express.urlencoded({ extended: true }));
+app.use("/products", productController);
 
 async function connectToMongo() {
   try {

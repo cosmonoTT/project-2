@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Log</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Create A New Product</h1>
     <form action="/products" method="POST">
-        Name: <input type="text" name="name" id="name"><br>
-        Description: <textarea name="description" id="description"></textarea><br>
-        Did you finish this product? <input type="checkbox" name="finishedProduct" id="finishedProduct"><br>
-        If you finished it, How long did it last? <input type="text" name="timeLasted" id="timeLasted"><br>
-        Would you like to add this to favorites? <input type="checkbox" name="addToFavorites" id="addToFavorites"><br>
-        <input type="submit" value="Create Product Log">
+      Name: <input type="text" name="name" id="name" /><br />
+      Description: <textarea name="description" id="description"></textarea
+      ><br />
+      Did you finish this product?
+      <input
+        type="checkbox"
+        name="finishedProduct"
+        id="finishedProduct"
+      /><br />
+      If you finished it, How long did it last?
+      <input type="text" name="timeLasted" id="timeLasted" /><br />
+      Would you like to add this to favorites?
+      <input type="checkbox" name="addToFavorites" id="addToFavorites" /><br />
+      <input type="submit" value="Create Product Log" />
     </form>
-</body>
+  </body>
 </html>
