@@ -63,8 +63,16 @@ router.post("/", async (req, res) => {
 });
 
 // EDIT
-router.get('/:id/edit', (req, res) => {
-    res.send("edit")
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const selectedProduct = await Product.findById(req.params.id)
+        console.log(selectedProduct)
+        res.render("edit.ejs", {
+            product: selectedProduct
+        })
+    } catch (err) {
+        console.error(err)
+    }
 })
 
 // SHOW
