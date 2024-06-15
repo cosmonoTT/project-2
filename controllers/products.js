@@ -1,5 +1,5 @@
+// Dependencies
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 const Product = require("../models/products.js");
 const seedData = require("../models/seedData.js");
@@ -36,6 +36,9 @@ router.delete('/:id', async (req, res) => {
 })
 
 // UPDATE
+router.put('/:id/', (req, res) => {
+    res.send("Updating Product")
+})
 
 // CREATE
 router.post("/", async (req, res) => {
