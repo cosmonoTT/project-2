@@ -63,6 +63,9 @@ router.post("/", async (req, res) => {
 });
 
 // EDIT
+router.get('/:id/edit', (req, res) => {
+    res.send("edit")
+})
 
 // SHOW
 router.get("/:id", async (req, res) => {
