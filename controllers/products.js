@@ -16,8 +16,6 @@ router.get("/", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-  } finally {
-    mongoose.connection.close();
   }
 });
 
@@ -27,8 +25,14 @@ router.get("/new", (req, res) => {
 });
 
 // DELETE
-router.delete('/:id', (req, res) => {
-    res.send("deleting")
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedProduct = await Product.findByIdAndDelete(req.params.id)
+        console.log(deletedProduct)
+        res.redirect("/products")
+    } catch (err) {
+        console.error(err)
+    }
 })
 
 // UPDATE
@@ -55,8 +59,6 @@ router.post("/", async (req, res) => {
     res.redirect("/products");
   } catch (err) {
     console.error(err);
-  } finally {
-    mongoose.connection.close;
   }
 });
 
@@ -72,8 +74,6 @@ router.get("/:id", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-  } finally {
-    mongoose.connection.close();
   }
 });
 
