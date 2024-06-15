@@ -8,27 +8,31 @@
   <body>
     <h1>Product Edit Page</h1>
     <form action="/products/<%=product.id%>/?_method=PUT" method="POST">
-      Name: <input type="text" name="name" id="name" value="<%=product.name%>"/><br />
-      Description: <textarea name="description" id="description"><%= product.description %></textarea
-      ><br />
-      Did you finish this product?
+      Name:
       <input
-        type="checkbox"
-        name="finishedProduct"
-        id="finishedProduct"
-      <% if (product.finishedProduct === true) { %>
-        checked
-        <% } %>
-        />
-      <br>
-      If you finished it, How long did it last?
-      <input type="text" name="timeLasted" id="timeLasted" value="<%=product.timeLasted%>"/><br />
-      Would you like to add this to favorites?
-      <input type="checkbox" name="addToFavorites" id="addToFavorites" 
-      <% if (product.addToFavorites === true ) { %> 
-        checked
-        <% } %>
+        type="text"
+        name="name"
+        id="name"
+        value="<%=product.name%>"
       /><br />
+      Description:
+      <textarea name="description" id="description">
+<%= product.description %></textarea
+      ><br />
+      Did you finish this product? <input type="checkbox" name="finishedProduct"
+      id="finishedProduct" <% if (product.finishedProduct === true) { %> checked
+      <% } %> />
+      <br />
+      If you finished it, How long did it last?
+      <input
+        type="text"
+        name="timeLasted"
+        id="timeLasted"
+        value="<%=product.timeLasted%>"
+      /><br />
+      Would you like to add this to favorites? <input type="checkbox"
+      name="addToFavorites" id="addToFavorites" <% if (product.addToFavorites
+      === true ) { %> checked <% } %> /><br />
       <input type="submit" value="Edit Product Log" />
     </form>
   </body>

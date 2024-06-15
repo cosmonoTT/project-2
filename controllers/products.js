@@ -10,7 +10,7 @@ const seedData = require("../models/seedData.js");
 router.get("/", async (req, res) => {
   try {
     const allProducts = await Product.find({});
-    console.log(allProducts);
+    // console.log(allProducts);
     res.render("index.ejs", {
       products: allProducts,
     });
@@ -25,20 +25,41 @@ router.get("/new", (req, res) => {
 });
 
 // DELETE
-router.delete('/:id', async (req, res) => {
-    try {
-        const deletedProduct = await Product.findByIdAndDelete(req.params.id)
-        console.log(deletedProduct)
-        res.redirect("/products")
-    } catch (err) {
-        console.error(err)
-    }
-})
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+    // console.log(deletedProduct);
+    res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 // UPDATE
-router.put('/:id/', (req, res) => {
-    res.send("Updating Product")
-})
+router.put("/:id/", async (req, res) => {
+  if (req.body.finishedProduct === "on") {
+    req.body.finishedProduct = true;
+  } else {
+    req.body.finishedProduct = false;
+  }
+
+  if (req.body.addToFavorites === "on") {
+    req.body.addToFavorites = true;
+  } else {
+    req.body.addToFavorites = false;
+  }
+
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 // CREATE
 router.post("/", async (req, res) => {
@@ -58,7 +79,7 @@ router.post("/", async (req, res) => {
 
   try {
     const createdProduct = await Product.create(req.body);
-    console.log(createdProduct);
+    // console.log(createdProduct);
     res.redirect("/products");
   } catch (err) {
     console.error(err);
@@ -66,23 +87,23 @@ router.post("/", async (req, res) => {
 });
 
 // EDIT
-router.get('/:id/edit', async (req, res) => {
-    try {
-        const selectedProduct = await Product.findById(req.params.id)
-        console.log(selectedProduct)
-        res.render("edit.ejs", {
-            product: selectedProduct
-        })
-    } catch (err) {
-        console.error(err)
-    }
-})
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const selectedProduct = await Product.findById(req.params.id);
+    // console.log(selectedProduct);
+    res.render("edit.ejs", {
+      product: selectedProduct,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 // SHOW
 router.get("/:id", async (req, res) => {
   try {
     const productId = await Product.findById(req.params.id);
-    console.log(productId)
+    // console.log(productId);
     res.render("show.ejs", {
       product: productId,
     });

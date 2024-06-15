@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Log Page</title>
-</head>
-<body>
+  </head>
+  <body>
+    <nav>
+        <form action="/products">
+            <input type="submit" value="INDEX">
+        </form>
+        <form action="/products/new">
+            <input type="submit" value="CREATE NEW">
+        </form>
+    </nav>
     <h1>Product Index Page</h1>
     <ul>
-    <% for (let i = 0; i < products.length; i++) { %>
-        <li>
-            <a href="/products/<%=products[i].id%>">
-                <%= products[i].name %>
-            </a>
-            <form action="/products/<%=products[i].id%>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE">
-            </form>
-            <form action="/products/<%=products[i].id%>/edit">
-                <input type="submit" value="EDIT">
-            </form>
-        </li>
-        <% } %>
+      <% for (let i = 0; i < products.length; i++) { %>
+      <li>
+        <a href="/products/<%=products[i].id%>"> <%= products[i].name %> </a>
+        <form
+          action="/products/<%=products[i].id%>?_method=DELETE"
+          method="POST"
+        >
+          <input type="submit" value="DELETE" />
+        </form>
+        <form action="/products/<%=products[i].id%>/edit">
+          <input type="submit" value="EDIT" />
+        </form>
+      </li>
+      <% } %>
     </ul>
-</body>
+  </body>
 </html>
