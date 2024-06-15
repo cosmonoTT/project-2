@@ -3,8 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const port = 4000;
+const productController = require('./controllers/products')
 
 const mongoURI = "mongodb://127.0.0.1:27017/products";
+
+// Middleware
+app.use('/products', productController)
 
 async function connectToMongo() {
   try {
@@ -16,8 +20,6 @@ async function connectToMongo() {
 }
 
 connectToMongo();
-
-// I.N.D.U.C.E.S
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
