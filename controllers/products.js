@@ -27,6 +27,9 @@ router.get("/new", (req, res) => {
 });
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    res.send("deleting")
+})
 
 // UPDATE
 
