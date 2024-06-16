@@ -16,10 +16,11 @@
       <textarea name="description" id="description">
 <%= product.description %></textarea
       ><br />
-      Did you finish this product? <input type="checkbox" name="finishedProduct"
-      id="finishedProduct" <% if (product.finishedProduct === true) { %> checked
-      <% } %> />
-      <br />
+      <label>
+        <input type="checkbox" id="finishedProduct"<% if (product.finishedProduct === true) { %> checked
+          <% } %> />
+        <span>Did you finish this product?</span>
+        </label><br>
       If you finished it, How long did it last?
       <input
         type="text"
@@ -27,9 +28,11 @@
         id="timeLasted"
         value="<%=product.timeLasted%>"
       /><br />
-      Would you like to add this to favorites? <input type="checkbox"
-      name="addToFavorites" id="addToFavorites" <% if (product.addToFavorites
-      === true ) { %> checked <% } %> /><br />
+      <label>
+        <input type="checkbox" id="addToFavorites" <% if (product.addToFavorites
+        === true ) { %> checked <% } %> />
+        <span>Would you like to add it to your favorites?</span>
+      </label><br>
       <input type="submit" value="Edit Product Log" />
     </form>
   </body>

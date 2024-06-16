@@ -5,19 +5,20 @@
     <%- include ('./partials/nav.ejs') %>
     <h1>Create A New Product</h1>
     <form action="/products" method="POST">
-      Name: <input type="text" name="name" id="name" /><br />
-      Description: <textarea name="description" id="description"></textarea
+        <input type="text" id="name" placeholder="Product Name" class="validate">
+      <br>
+      <label for="description">Product Description</label>
+      <textarea name="description" id="description"></textarea
       ><br />
-      Did you finish this product?
-      <input
-        type="checkbox"
-        name="finishedProduct"
-        id="finishedProduct"
-      /><br />
-      If you finished it, How long did it last?
-      <input type="text" name="timeLasted" id="timeLasted" /><br />
-      Would you like to add this to favorites?
-      <input type="checkbox" name="addToFavorites" id="addToFavorites" /><br />
+      <label>
+      <input type="checkbox" id="finishedProduct">
+      <span>Did you finish this product?</span>
+      </label><br>
+      <input type="text" name="timeLasted" id="timeLasted" placeholder="If you finished this product, how long did it last?"/><br />
+      <label>
+        <input type="checkbox" id="addToFavorites">
+        <span>Would you like to add it to your favorites?</span>
+      </label><br>
       <input type="submit" value="Create Product Log" />
     </form>
   </body>

@@ -11,6 +11,7 @@ const mongoURI = "mongodb://127.0.0.1:27017/products";
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.static("public"));
 app.use("/products", productController);
 
 async function connectToMongo() {
