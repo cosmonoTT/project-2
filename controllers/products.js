@@ -19,6 +19,11 @@ router.get("/", async (req, res) => {
   }
 });
 
+// INDEX FOR FAVORITES
+router.get('/favorites', (req, res) => {
+  res.render('favorites.ejs')
+})
+
 // NEW
 router.get("/new", (req, res) => {
   res.render("new.ejs");
