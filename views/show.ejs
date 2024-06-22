@@ -3,8 +3,8 @@
 <%- include('./partials/header.ejs') %>
   <body>
     <%- include ('./partials/nav.ejs') %>
-    <h1><%= product.name %></h1>
-    <h2>How I felt about this product</h2>
+    <h3><%= product.name %></h3>
+    <h4>How I felt about this product</h4>
     <p><%= product.description %></p>
     <% if (product.finishedProduct === true) { %>
     <p>I finished this product</p>

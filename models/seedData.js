@@ -4,7 +4,6 @@ const seedData = [
     description: "One of my favorite moisturizers",
     finishedProduct: true,
     timeLasted: "4 months",
-    addToFavorites: true,
   },
 ];
 

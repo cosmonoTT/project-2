@@ -5,5 +5,13 @@ body {
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
+
+nav {
+  display: flex;
+}
+
+/* #isFavorite {
+  display: none;
+} */

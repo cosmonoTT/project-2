@@ -10,7 +10,7 @@ const seedData = require("../models/seedData.js");
 router.get("/", async (req, res) => {
   try {
     const allProducts = await Product.find({});
-    // console.log(allProducts);
+    console.log(allProducts);
     res.render("index.ejs", {
       products: allProducts,
     });
@@ -20,9 +20,17 @@ router.get("/", async (req, res) => {
 });
 
 // INDEX FOR FAVORITES
-router.get('/favorites', (req, res) => {
-  res.render('favorites.ejs')
-})
+router.get("/favorites", async (req, res) => {
+  try {
+    const favoriteProducts = await Product.find({ isFavorite: { $eq: true } });
+    console.log(favoriteProducts);
+    res.render("favorites.ejs", {
+      favProds: favoriteProducts,
+    });
+  } catch (err) {
+    console.error(err)
+  }
+});
 
 // NEW
 router.get("/new", (req, res) => {
@@ -48,12 +56,6 @@ router.put("/:id/", async (req, res) => {
     req.body.finishedProduct = false;
   }
 
-  if (req.body.addToFavorites === "on") {
-    req.body.addToFavorites = true;
-  } else {
-    req.body.addToFavorites = false;
-  }
-
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
@@ -61,6 +63,20 @@ router.put("/:id/", async (req, res) => {
       { new: true }
     );
     res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// UPDATE to add favorites
+router.put("/favorites/:id", async (req, res) => {
+  try {
+    const favoriteProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      { $set: { isFavorite: true } },
+    );
+    // console.log(favoriteProduct)
+    res.redirect("/products/");
   } catch (err) {
     console.error(err);
   }

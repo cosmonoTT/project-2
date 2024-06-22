@@ -6,6 +6,7 @@ const productSchema = new Schema({
   description: String,
   finishedProduct: Boolean,
   timeLasted: String,
+  isFavorite: { type: Boolean, default: false }
 });
 
 const Product = mongoose.model("Product", productSchema);

@@ -3,5 +3,21 @@
 <%- include('./partials/header.ejs') %>
 <body>
     <%- include('./partials/nav.ejs') %>
+    <h4>Favorites</h4>
+    <table>
+
+        <% for (let i = 0; i < favProds.length; i++) { %>
+        <tr>
+            <td>
+                <a href="/products/<%=favProds[i].id%>">
+                    <%= favProds[i].name %>  
+                </a>
+            </td>
+            <td>
+                <form action=""></form>
+            </td>
+        </tr>
+        <% } %>
+    </table>
 </body>
 </html>

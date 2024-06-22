@@ -11,7 +11,7 @@
         <a href="/products/<%=products[i].id%>"> <%= products[i].name %> </a>
         </td>
         <td>
-          <form action="/products/favorites" method="POST">
+          <form action="/products/favorites/<%=products[i].id%>?_method=PUT" method="POST">
           <input type="submit" value="Add To Favorites">
           </form>
         </td>
