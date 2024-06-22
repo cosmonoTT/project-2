@@ -73,7 +73,7 @@ router.put("/favorites/:id", async (req, res) => {
   try {
     const favoriteProduct = await Product.findByIdAndUpdate(
       req.params.id,
-      { $set: { isFavorite: true } },
+      { $set: { isFavorite: true } }
     );
     // console.log(favoriteProduct)
     res.redirect("/products/");
@@ -81,6 +81,19 @@ router.put("/favorites/:id", async (req, res) => {
     console.error(err);
   }
 });
+
+// UPDATE to remove favorites
+router.put("/favorites/:id/remove", async (req, res) => {
+  try {
+    const favoritedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      { $set: { isFavorite: false } }
+    )
+    res.redirect("/products")
+  } catch (err) {
+    console.error(err)
+  }
+})
 
 // CREATE
 router.post("/", async (req, res) => {
