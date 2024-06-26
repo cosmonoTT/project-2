@@ -12,6 +12,21 @@ nav {
   display: flex;
 }
 
-/* #isFavorite {
+nav form {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#isFavorite {
   display: none;
-} */
+}
+
+#button {
+  height: 30px;
+  border-radius: 7%;
+  border-width: 0.5px;
+}
+
+p {
+  margin: 20px;
+}

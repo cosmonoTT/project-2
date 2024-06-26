@@ -17,7 +17,7 @@
 <%= product.description %></textarea
       ><br />
       <label>
-        <input type="checkbox" id="finishedProduct"<% if (product.finishedProduct === true) { %> checked
+        <input type="checkbox" name="finishedProduct" id="finishedProduct"<% if (product.finishedProduct === true) { %> checked
           <% } %> />
         <span>Did you finish this product?</span>
         </label><br>
@@ -29,7 +29,7 @@
         value="<%=product.timeLasted%>"
       /><br />
       <input type="text" id="isFavorite">
-      <input type="submit" value="Edit Product Log" />
+      <input type="submit" value="Edit Product Log" id="button"/>
     </form>
   </body>
 </html>

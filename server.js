@@ -3,10 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
-const port = 4000;
+require("dotenv").config()
+const port = process.env.PORT;
 const productController = require("./controllers/products");
 
-const mongoURI = "mongodb://127.0.0.1:27017/products";
+
+const mongoURI = process.env.MONGOURI;
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));

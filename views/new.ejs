@@ -5,18 +5,18 @@
     <%- include ('./partials/nav.ejs') %>
     <h1>Create A New Product</h1>
     <form action="/products" method="POST">
-        <input type="text" id="name" placeholder="Product Name" class="validate">
+        <input type="text" name="name" id="name" placeholder="Product Name" class="validate">
       <br>
       <label for="description">Product Description</label>
       <textarea name="description" id="description"></textarea
       ><br />
-      <label>
-      <input type="checkbox" id="finishedProduct">
-      <span>Did you finish this product?</span>
+      <label for="finishedProduct">
+        <input type="checkbox" name="finishedProduct" id="finishedProduct">
+        <span>Did you finish this product?</span>
       </label><br>
       <input type="text" name="timeLasted" id="timeLasted" placeholder="If you finished this product, how long did it last?"/><br />
       <input type="text" id="isFavorite">
-      <input type="submit" value="Create Product Log" />
+      <input type="submit" value="Create Product Log" id="button"/>
     </form>
   </body>
 </html>

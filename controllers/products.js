@@ -23,12 +23,12 @@ router.get("/", async (req, res) => {
 router.get("/favorites", async (req, res) => {
   try {
     const favoriteProducts = await Product.find({ isFavorite: { $eq: true } });
-    console.log(favoriteProducts);
+    // console.log(favoriteProducts);
     res.render("favorites.ejs", {
       favProds: favoriteProducts,
     });
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 });
 
@@ -71,10 +71,9 @@ router.put("/:id/", async (req, res) => {
 // UPDATE to add favorites
 router.put("/favorites/:id", async (req, res) => {
   try {
-    const favoriteProduct = await Product.findByIdAndUpdate(
-      req.params.id,
-      { $set: { isFavorite: true } }
-    );
+    const favoriteProduct = await Product.findByIdAndUpdate(req.params.id, {
+      $set: { isFavorite: true },
+    });
     // console.log(favoriteProduct)
     res.redirect("/products/");
   } catch (err) {
@@ -85,15 +84,14 @@ router.put("/favorites/:id", async (req, res) => {
 // UPDATE to remove favorites
 router.put("/favorites/:id/remove", async (req, res) => {
   try {
-    const favoritedProduct = await Product.findByIdAndUpdate(
-      req.params.id,
-      { $set: { isFavorite: false } }
-    )
-    res.redirect("/products")
+    const favoritedProduct = await Product.findByIdAndUpdate(req.params.id, {
+      $set: { isFavorite: false },
+    });
+    res.redirect("/products");
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-})
+});
 
 // CREATE
 router.post("/", async (req, res) => {
